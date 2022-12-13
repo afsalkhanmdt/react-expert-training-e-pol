@@ -3,13 +3,13 @@ import {verifyToken} from "../Generator";
 import { getErrorDetails } from "../Map";
 import { NextFunction, Request, Response } from "express";
 
-const joiValidateMiddleware = (req:Request, res:Response, next:NextFunction, schema:any) => {
+export const joiValidateMiddleware = (schema:any)=>(req:Request, res:Response, next:NextFunction) => {
   const { error } = schema.validate(req.body, { abortEarly: false });
   if (error) return badRequest(res, "Bad Request", getErrorDetails(error));
   next();
 };
 
-const authMiddleware = (permission:string) => async (req:any, res:Response, next:NextFunction) => {
+export const authMiddleware = (permission:string) => async (req:any, res:Response, next:NextFunction) => {
   if (!req.headers.authorization)
     return unauthorizedError(res, {
       error: "No authorization header found",
@@ -40,7 +40,3 @@ const authMiddleware = (permission:string) => async (req:any, res:Response, next
 
 
 
-export default {
-  joiValidateMiddleware,
-  authMiddleware,
-};

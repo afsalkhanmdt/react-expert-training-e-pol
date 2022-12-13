@@ -1,5 +1,5 @@
 import {createTransport} from "nodemailer";
-import { EMAIL_HOST, EMAIL_PASSWORD, EMAIL_USER } from "src/Config/env";
+import { EMAIL_HOST, EMAIL_PASSWORD, EMAIL_USER } from "../../Config/env";
 
 const sentEmail = (from:string,to:string | string[], subject:string, text:string, html:string) =>
   new Promise((resolve, reject) => {

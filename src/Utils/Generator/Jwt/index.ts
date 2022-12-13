@@ -1,5 +1,5 @@
 import {sign,verify} from "jsonwebtoken";
-import { TOKEN_SECRET } from "src/Config/env";
+import { TOKEN_SECRET } from "../../../Config/env";
 
 export const generateToken = (data:object) => {
   const accessToken = sign(

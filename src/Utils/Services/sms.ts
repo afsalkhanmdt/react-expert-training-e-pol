@@ -1,7 +1,7 @@
 //@ts-ignore
 import unirest from "unirest";
 
-import { SMS_SERVICE_KEY } from "src/Config/env";
+import { SMS_SERVICE_KEY } from "../../Config/env";
 
 const sentPhoneOtp = async (otp:number|string, phone:number) => {
   const sentMessage = new Promise((resolve, reject) => {

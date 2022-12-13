@@ -1,5 +1,5 @@
 import { scryptSync, createCipheriv, createDecipheriv } from "crypto";
-import { AES_IV_KEY, AES_IV_SALT, AES_SECRET_KEY, AES_SECRET_SALT } from "src/Config/env";
+import { AES_IV_KEY, AES_IV_SALT, AES_SECRET_KEY, AES_SECRET_SALT } from "../../Config/env";
 
 const aesEncrypt = (data:string) => {
   const iv = scryptSync(AES_IV_KEY, AES_IV_SALT, 16);
