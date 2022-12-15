@@ -7,7 +7,7 @@ export const VoterRegisterSchema = Joi.object({
   password: Voter.JoiVoterPassword,
   email: Voter.JoiVoterEmail,
   college: Voter.JoiVoterCollege,
-  batch: Voter.JoiVoterBatch,
+  semester: Voter.JoiVoterBatch,
   registerNumber: Voter.JoiVoterRegisterNumber
 });
 
