@@ -8,3 +8,10 @@ export const createVoter = async(voter:any)=>{
     });
     return result;
 }
+
+export const getVoterByEmail = async(email:any)=>{
+    const result = await Voter.findOne({
+        email
+    });
+    return result;
+}

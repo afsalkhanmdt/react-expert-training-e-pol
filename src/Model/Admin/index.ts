@@ -8,3 +8,10 @@ export const createAdmin = async(admin:any)=>{
     });
     return result;
 }
+
+export const getAdminByEmail = async(email:any)=>{
+    const result = await Admin.findOne({
+        email
+    });
+    return result;
+}

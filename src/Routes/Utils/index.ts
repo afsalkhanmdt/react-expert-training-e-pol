@@ -1,7 +1,7 @@
 import { Router } from "express"
 import Admin from "../../Model/Schema/Admin";
 import Voter from "../../Model/Schema/Voter";
-import { createCollege, getColleges } from "../../Model/Utils";
+import { addBatch, createCollege, getColleges } from "../../Model/Utils";
 import { successResponse } from "../../Utils";
 
 const router = Router()
@@ -14,6 +14,11 @@ router.get("/colleges",async(req,res)=>{
 
 router.post("/add-college",async(req,res)=>{
     const result = await createCollege(req.body)
+    successResponse(res,result,"College Added")
+})
+
+router.post("/add-batch",async(req,res)=>{
+    const result = await addBatch(req.body.id,req.body.batch)
     successResponse(res,result,"College Added")
 })
 

@@ -142,6 +142,7 @@ const JoiTime = (Entity: string) =>
 
 const JoiRequiredTime = (Entity: string) => JoiTime(Entity).required();
 
+
 const JoiOtp = (Entity = "OTP") =>
   Joi.string()
     .length(6)
@@ -188,6 +189,18 @@ const JoiDescription = (Entity = "Description") =>
 const JoiRequiredDescription = (Entity?: string) =>
   JoiDescription(Entity).required();
 
+const JoiRequiredStringWithRange = (Entity:string,min=2,max=50)=>
+    Joi.string()
+    .required()
+    .min(min)
+    .max(max)
+    .messages({
+      "string.min": `${Entity} must be at least ${min} characters`,
+      "string.max": `${Entity} must be at most ${max} characters`,
+      "string.empty": `${Entity} cannot be empty`,
+      "any.required": `${Entity} is required`,
+    });
+
 const JoiDate = (Entity = "Date") =>
   Joi.date().messages({
     "string.empty": `${Entity} cannot be empty`,
@@ -225,4 +238,5 @@ export {
   JoiRequiredFileUrl,
   JoiFileUrls,
   JoiDuration,
+  JoiRequiredStringWithRange
 };
