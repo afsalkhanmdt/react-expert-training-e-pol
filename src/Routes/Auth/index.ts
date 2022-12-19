@@ -1,7 +1,9 @@
 import { Router } from "express"
 import { joiValidateMiddleware } from "../../Utils"
 import { AdminRegisterSchema, VoterRegisterSchema } from "../../Validation/ValidationSchemas/auth"
+import AdminLogin from "./Controller/AdminLogin"
 import AdminRegister from "./Controller/AdminRegister"
+import VoterLogin from "./Controller/VoterLogin"
 import VoterRegister from "./Controller/VoterRegister"
 import { duplicateEmail } from "./Validation"
 
@@ -22,14 +24,13 @@ joiValidateMiddleware(AdminRegisterSchema),
 duplicateEmail("Admin"),
 AdminRegister)
 
-//TODO Implement controller
-router.post("/voter-login",(req,res)=>{
-    res.send("Voter Login")
-})
 
-//TODO Implement controller
-router.post("/admin-login",(req,res)=>{
-    res.send("Admin Login")
-})
+router.post("/voter-login",
+VoterLogin)
+
+
+router.post("/admin-login",
+AdminLogin
+)
 
 export default router;

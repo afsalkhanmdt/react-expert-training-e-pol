@@ -19,7 +19,7 @@ router.post("/add-college",async(req,res)=>{
 
 router.post("/add-batch",async(req,res)=>{
     const result = await addBatch(req.body.id,req.body.batch)
-    successResponse(res,result,"College Added")
+    successResponse(res,result,"Batch Added")
 })
 
 router.get("/voters",async(req,res)=>{
@@ -29,7 +29,7 @@ router.get("/voters",async(req,res)=>{
 
 router.get("/admins",async(req,res)=>{
     const result = await Admin.find().populate("college")
-    successResponse(res,result,"Colleges List")
+    successResponse(res,result,"admin List")
 })
 
 export default router;
