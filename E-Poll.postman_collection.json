@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Noufal\",\r\n    \"email\": \"nbcom@gmail.com\",\r\n    \"college\": \"6396d1380e1abf6c69f1e793\",\r\n    \"batch\": \"2015\",\r\n    \"password\": \"aasfdssdfas\",\r\n    \"registerNumber\": \"1205\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Noufal\",\r\n    \"email\": \"nbcom@gmail.com\",\r\n    \"college\": \"6396d1380e1abf6c69f1e793\",\r\n    \"batch\": \"2015\",\r\n    \"password\": \"aasfdssdfas\",\r\n    \"registerNumber\": \"1205\",\r\n    \"department\": \"CSE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,8 +45,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"abhinandth@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/auth/voter-register",
+							"raw": "http://localhost:8000/api/v1/auth/voter-login",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -56,7 +65,7 @@
 								"api",
 								"v1",
 								"auth",
-								"voter-register"
+								"voter-login"
 							]
 						}
 					},
@@ -67,6 +76,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Abhinand\",\r\n    \"email\": \"abhinand@gmail.co\",\r\n    \"college\": \"6396d1380e1abf6c69f1e793\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/v1/auth/admin-register",
 							"protocol": "http",
@@ -89,6 +107,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"abhinand@gmail.co\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/v1/auth/admin-login",
 							"protocol": "http",
@@ -110,7 +137,19 @@
 					"name": "Test",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/static/a.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"static",
+								"a.txt"
+							]
+						}
 					},
 					"response": []
 				}
@@ -126,7 +165,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"ACE College of Enginnering\",\r\n    \"location\": \"Trivandrum\"\r\n}",
+							"raw": "{\r\n    \"name\": \"CET\",\r\n    \"location\": \"Trivandrum\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,7 +173,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/utils/add-callege",
+							"raw": "http://localhost:8000/api/v1/utils/add-college",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -144,7 +183,38 @@
 								"api",
 								"v1",
 								"utils",
-								"add-callege"
+								"add-college"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6396d1380e1abf6c69f1e793\",\r\n    \"batch\": {\r\n        \"name\": \"CSE\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/utils/add-batch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"utils",
+								"add-batch"
 							]
 						}
 					},
