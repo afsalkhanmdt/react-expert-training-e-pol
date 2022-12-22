@@ -15,3 +15,10 @@ export const getVoterByEmail = async(email:any)=>{
     });
     return result;
 }
+
+export const getVoterByRegisterNumber = async(registerNumber:any)=>{
+    const result = await Voter.findOne({
+        registerNumber
+    });
+    return result;
+}

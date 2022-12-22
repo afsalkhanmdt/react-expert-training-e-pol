@@ -1,11 +1,13 @@
 import { Router } from "express"
-const router = Router()
-
 import Auth from "./Auth"
 import Shop from "./Shop"
 import Utils from "./Utils"
+import Admin from "./Admin"
+
+const router = Router()
 
 router.use("/auth",Auth)
+router.use("/admin",Admin)
 router.use("/utils",Utils)
 router.use("/shop",Shop)
 
