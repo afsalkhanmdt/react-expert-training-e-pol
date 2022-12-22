@@ -132,26 +132,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Test",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/static/a.txt",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"static",
-								"a.txt"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -215,6 +195,37 @@
 								"v1",
 								"utils",
 								"add-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Position",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6396d1380e1abf6c69f1e793\",\r\n    \"position\": {\r\n        \"name\": \"Chairman\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/utils/add-position",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"utils",
+								"add-position"
 							]
 						}
 					},
@@ -285,8 +296,66 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Election",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create Election",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Election 2022-23\",\r\n    \"positions\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/admin/create-election",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"create-election"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Voter",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:8000/api/v1/"
 		}
 	]
 }
