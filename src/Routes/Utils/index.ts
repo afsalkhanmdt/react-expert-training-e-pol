@@ -6,10 +6,11 @@ import {
   addPosition,
   createCollege,
   getColleges,
-  getElections,
-} from "../../Model/Utils";
+} from "../../Model/College";
+
 import { successResponse } from "../../Utils";
 import FileUpload from "./Controller/fileUpload";
+import { getElections } from "../../Model/Utils";
 
 const router = Router();
 
@@ -26,16 +27,6 @@ router.get("/elections", async (req, res) => {
 router.post("/add-college", async (req, res) => {
   const result = await createCollege(req.body);
   successResponse(res, result, "College Added");
-});
-
-router.post("/add-batch", async (req, res) => {
-  const result = await addBatch(req.body.id, req.body.batch);
-  successResponse(res, result, "Batch Added");
-});
-
-router.post("/add-position", async (req, res) => {
-  const result = await addPosition(req.body.id, req.body.position);
-  successResponse(res, result, "Batch Added");
 });
 
 router.get("/voters", async (req, res) => {
