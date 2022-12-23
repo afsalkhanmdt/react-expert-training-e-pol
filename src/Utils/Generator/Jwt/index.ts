@@ -1,7 +1,7 @@
-import {sign,verify} from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 import { TOKEN_SECRET } from "../../../Config/env";
 
-export const generateToken = (data:object) => {
+export const generateToken = (data: object) => {
   const accessToken = sign(
     {
       ...data,
@@ -11,9 +11,9 @@ export const generateToken = (data:object) => {
   return accessToken;
 };
 
-export const verifyToken = (token:string):Promise<{permissions:string[]}> =>
+export const verifyToken = (token: string): Promise<{ type: string }> =>
   new Promise((resolve, reject) => {
-    verify(token, TOKEN_SECRET, (err, decoded?:{permissions:string[]}) => {
+    verify(token, TOKEN_SECRET, (err, decoded?: { type: string }) => {
       if (err) {
         return reject(err);
       } else {
@@ -22,7 +22,7 @@ export const verifyToken = (token:string):Promise<{permissions:string[]}> =>
     });
   });
 
-const JWT =  {
+const JWT = {
   generateToken,
   verifyToken,
 };

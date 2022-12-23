@@ -18,15 +18,15 @@ const FileUpload = async (req: Request, res: Response) => {
         path: null,
       },
     ]);
-  const filePath = uploadFile(file);
-  if (!filePath)
+  const imageUrl = uploadFile(file);
+  if (!imageUrl)
     return badRequest(res, "No file uploaded", [
       {
         message: "No file uploaded",
         path: null,
       },
     ]);
-  successResponse(res, { filePath }, "File Uploaded");
+  successResponse(res, { imageUrl }, "File Uploaded");
 };
 
 export default FileUpload;
