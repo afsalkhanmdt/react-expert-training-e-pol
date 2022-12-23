@@ -301,7 +301,21 @@
 					"name": "Get Election",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/utils/elections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"utils",
+								"elections"
+							]
+						}
 					},
 					"response": []
 				}
@@ -317,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Election 2022-23\",\r\n    \"positions\":[]\r\n}",
+							"raw": "{\r\n    \"name\": \"Election 2022-23\",\r\n    \"college\": \"6396d1380e1abf6c69f1e793\",\r\n    \"positions\":[\r\n        {\r\n            \"position\": \"63a2b8c9a0735604dd3f80eb\",\r\n            \"candidates\": {\r\n                \"student\": \"639c8287a49bb8fe79cf3462\"\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -344,8 +358,31 @@
 				{
 					"name": "Get Voter",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"registerNumber\": \"1205\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/admin/get-voter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"get-voter"
+							]
+						}
 					},
 					"response": []
 				}
