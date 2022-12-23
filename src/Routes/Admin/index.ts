@@ -7,10 +7,12 @@ import GetAdminProfile from "./Controller/GetProfile";
 import GetVoter from "./Controller/GetVoterByRegisterNumber";
 import RemoveBatch from "./Controller/RemoveBatch";
 import RemovePosition from "./Controller/RemovePosition";
+import UpdateElection from "./Controller/UpdateElection";
 
 const router = Router();
 
 router.post("/create-election", CreateElection);
+router.post("/update-election", UpdateElection);
 router.get("/get-elections", GetElections);
 
 router.post("/get-voter", GetVoter);
