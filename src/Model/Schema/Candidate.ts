@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 
 const Candidate = new Schema({
-  studentId: {
+  student: {
     type: Schema.Types.ObjectId,
     ref:'Voter'
   },

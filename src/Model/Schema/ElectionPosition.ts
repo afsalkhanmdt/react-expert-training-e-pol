@@ -2,9 +2,9 @@ import { Schema } from "mongoose";
 import Candidate from "./Candidate";
 
 const ElectionPosition = new Schema({
-  id: {
+  position: {
     type: Schema.Types.ObjectId,
-    ref: "College"
+    ref: "College.positions"
   },
   candidates:[Candidate],
 },
