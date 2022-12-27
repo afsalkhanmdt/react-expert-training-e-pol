@@ -8,7 +8,7 @@ import { authMiddleware } from "../Utils";
 const router = Router();
 
 router.use("/auth", Auth);
-router.use("/admin", authMiddleware("admin"), Admin);
+router.use("/admin",authMiddleware("admin"), Admin);
 router.use("/utils", Utils);
 router.use("/shop", Shop);
 

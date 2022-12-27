@@ -24,6 +24,8 @@ export const removeBatch = async (id: any, batch: any) => {
 };
 
 export const addPosition = async (id: any, position: any) => {
+  console.log(position);
+  
   const result = await College.findByIdAndUpdate(id, {
     $push: { positions: position },
   });

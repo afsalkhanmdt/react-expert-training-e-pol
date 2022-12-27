@@ -34,7 +34,7 @@ export const duplicateRegNo = async (
     return badRequest(res, "Bad Request", [
       {
         message: "RegNo Already exists",
-        path: "regNo",
+        path: "registerNumber",
       },
     ]);
   next();

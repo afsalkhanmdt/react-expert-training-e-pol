@@ -16,6 +16,6 @@ export const getAdminByEmail = async (email: any) => {
   return result;
 };
 export const getAdminById = async (id: any) => {
-  const result = await Admin.findById(id);
+  const result = await Admin.findById(id).populate("college")
   return result;
 };

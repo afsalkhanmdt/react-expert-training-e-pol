@@ -11,6 +11,9 @@ export const generateToken = (data: object) => {
   return accessToken;
 };
 
+
+
+
 export const verifyToken = (token: string): Promise<{ type: string }> =>
   new Promise((resolve, reject) => {
     verify(token, TOKEN_SECRET, (err, decoded?: { type: string }) => {

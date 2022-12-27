@@ -6,7 +6,7 @@ import { addBatch } from "../../../Model/College";
 
 const AddBatch = async (req: RequestWithAuth, res: Response) => {
   const college = (await getAdminById(req.user.id)).college;
-  const result = await addBatch(college, req.body.batch);
+  const result = await addBatch(college, req.body);
   if (!result) return badRequest(res, "Could not add batch");
   successResponse(res, result, "Batch Added");
 };
