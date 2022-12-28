@@ -10,6 +10,6 @@ export const updateElection = async (id: any, election: any) => {
 };
 
 export const getElectionByCollege = async (college: any) => {
-  const result = await Election.find({ college });
+  const result = await Election.find({ college }).populate("college").populate("positions.candidates.student");
   return result;
 };

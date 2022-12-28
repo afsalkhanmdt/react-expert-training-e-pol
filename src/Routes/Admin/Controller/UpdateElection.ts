@@ -6,7 +6,7 @@ import { RequestWithAuth } from "../../../Types/Request";
 
 const UpdateElection = async (req: RequestWithAuth, res: Response) => {
   const college = (await getAdminById(req.user.id)).college;
-  const election = await updateElection(college, { ...req.body, college });
+  const election = await updateElection(req.body.id, { ...req.body, college });
   successResponse(res, election, "Create Election");
 };
 
