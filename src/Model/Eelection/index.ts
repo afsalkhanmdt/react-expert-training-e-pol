@@ -5,15 +5,17 @@ export const createElection = async (election: any) => {
   return result;
 };
 export const updateElection = async (id: any, election: any) => {
-  const result = await Election.findByIdAndUpdate(id, election);
+  const result = await Election.findByIdAndUpdate(id, election, {
+    upsert: true,
+    new: true,
+  });
   return result;
 };
 
 export const getElectionByCollege = async (college: any) => {
-  const result = await Election
-                      .find({ college })
-                      .populate("college")
-                      .populate("positions.candidates.student");
+  const result = await Election.find({ college })
+    .populate("college")
+    .populate("positions.candidates.student");
   return result.map((data: any) => ({
     ...data._doc,
     positions: data.positions.map((d: any) => ({
@@ -23,4 +25,16 @@ export const getElectionByCollege = async (college: any) => {
       ),
     })),
   }));
+};
+export const getElectionById = async (id: any) => {
+  const result = await Election.findById(id);
+  return result;
+};
+
+export const getOngoingElection = async (college: any) => {
+  const result = await Election.findOne({
+    college,
+    status: "ongoing",
+  }).populate("positions.candidates.student");
+  return result;
 };
