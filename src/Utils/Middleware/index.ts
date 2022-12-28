@@ -25,8 +25,6 @@ export const authMiddleware =
 
     try {
       const decoded = await verifyToken(token);
-      console.log(decoded.type.split(" "), type.split(" "));
-      
       if (decoded.type != type) {
         return unauthorizedError(res, {
           error: "You don't have permission to access this resource",

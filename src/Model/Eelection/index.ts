@@ -35,6 +35,6 @@ export const getOngoingElection = async (college: any) => {
   const result = await Election.findOne({
     college,
     status: "ongoing",
-  }).populate("positions.candidates.student");
+  });
   return result;
 };

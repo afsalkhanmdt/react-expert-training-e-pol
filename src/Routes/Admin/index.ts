@@ -2,6 +2,7 @@ import { Router } from "express";
 import AddBatch from "./Controller/AddBatch";
 import AddPosition from "./Controller/AddPosition";
 import CreateElection from "./Controller/CreateElection";
+import GetDashBoard from "./Controller/GetDashBoard";
 import GetElections from "./Controller/GetElections";
 import GetAdminProfile from "./Controller/GetProfile";
 import GetVoter from "./Controller/GetVoterByRegisterNumber";
@@ -10,6 +11,8 @@ import RemovePosition from "./Controller/RemovePosition";
 import UpdateElection from "./Controller/UpdateElection";
 
 const router = Router();
+
+router.get("/dashboard", GetDashBoard);
 
 router.post("/create-election", CreateElection);
 router.post("/update-election", UpdateElection);

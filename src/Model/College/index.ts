@@ -10,9 +10,13 @@ export const getColleges = async () => {
 };
 
 export const addBatch = async (id: any, batch: any) => {
-  const result = await College.findByIdAndUpdate(id, {
-    $push: { batches: batch },
-  });
+  const result = await College.findByIdAndUpdate(
+    id,
+    {
+      $push: { batches: batch },
+    },
+    { new: true }
+  );
 
   return result;
 };
@@ -25,10 +29,14 @@ export const removeBatch = async (id: any, batch: any) => {
 
 export const addPosition = async (id: any, position: any) => {
   console.log(position);
-  
-  const result = await College.findByIdAndUpdate(id, {
-    $push: { positions: position },
-  });
+
+  const result = await College.findByIdAndUpdate(
+    id,
+    {
+      $push: { positions: position },
+    },
+    { new: true }
+  );
   return result;
 };
 export const removePosition = async (id: any, position: any) => {
