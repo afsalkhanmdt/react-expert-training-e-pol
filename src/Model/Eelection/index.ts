@@ -32,12 +32,12 @@ export const getElectionById = async (id: any) => {
 };
 
 export const getOngoingElection = async (college: any) => {
-  const data:any = await Election.findOne({
+  const data: any = await Election.findOne({
     college,
     status: "ongoing",
   })
-  .populate("college")
-  .populate("positions.candidates.student")
+    .populate("college")
+    .populate("positions.candidates.student");
   return {
     ...data._doc,
     positions: data.positions.map((d: any) => ({
@@ -47,4 +47,48 @@ export const getOngoingElection = async (college: any) => {
       ),
     })),
   };
+};
+
+export const addVoterToElection = async (id: any, voter: any) => {
+  //check if voter has already voted
+  const result = await Election.findOneAndUpdate(
+    {
+      _id: id,
+      voters: { $ne: voter },
+    },
+    {
+      $push: {
+        voters: voter,
+      },
+    },
+    {
+      new: true,
+    }
+  );
+  if (!result) {
+    return false;
+  }
+  return result;
+};
+export const addCandidateVotes = async (id: any, votes: any) => {
+  votes.forEach(async (element: any) => {
+    const result = await Election.findOneAndUpdate(
+      {
+        _id: id,
+        "positions.position": element.position,
+      },
+      {
+        $inc: {
+          "positions.$.candidates.$[candidate].votes": 1,
+        },
+      },
+      {
+        arrayFilters: [
+          {
+            "candidate.student": element.candidate,
+          },
+        ],
+      }
+    );
+  });
 };
