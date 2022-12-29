@@ -21,7 +21,7 @@ export const getElectionByCollege = async (college: any) => {
     positions: data.positions.map((d: any) => ({
       ...d._doc,
       position: data._doc.college.positions.find(
-        ({ _id }: any) => _id.str === d._doc.position.str
+        ({ _id }: any) => _id.toString() === d._doc.position.toString()
       ),
     })),
   }));
@@ -32,9 +32,19 @@ export const getElectionById = async (id: any) => {
 };
 
 export const getOngoingElection = async (college: any) => {
-  const result = await Election.findOne({
+  const data:any = await Election.findOne({
     college,
     status: "ongoing",
-  });
-  return result;
+  })
+  .populate("college")
+  .populate("positions.candidates.student")
+  return {
+    ...data._doc,
+    positions: data.positions.map((d: any) => ({
+      ...d._doc,
+      position: data._doc.college.positions.find(
+        ({ _id }: any) => _id.toString() === d._doc.position.toString()
+      ),
+    })),
+  };
 };
