@@ -6,6 +6,7 @@ import GetDashBoard from "./Controller/GetDashBoard";
 import GetElections from "./Controller/GetElections";
 import GetAdminProfile from "./Controller/GetProfile";
 import GetVoter from "./Controller/GetVoterByRegisterNumber";
+import GetVoters from "./Controller/GetVoters";
 import RemoveBatch from "./Controller/RemoveBatch";
 import RemovePosition from "./Controller/RemovePosition";
 import UpdateElection from "./Controller/UpdateElection";
@@ -19,6 +20,7 @@ router.post("/update-election", UpdateElection);
 router.get("/get-elections", GetElections);
 
 router.post("/get-voter", GetVoter);
+router.get("/get-voters", GetVoters);
 router.get("/profile", GetAdminProfile);
 router.post("/add-batch", AddBatch);
 router.post("/add-position", AddPosition);

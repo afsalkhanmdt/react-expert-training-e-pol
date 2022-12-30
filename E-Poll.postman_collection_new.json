@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8157e9c6-de4c-43ff-8a48-9c5128c68742",
+		"_postman_id": "4cded8b2-6fab-407e-b0f6-83e0d38e3ade",
 		"name": "E-Poll",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22786848"
+		"_exporter_id": "16976116"
 	},
 	"item": [
 		{
@@ -402,12 +402,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8800/api/v1/admin/get-voter",
+							"raw": "http://localhost:8000/api/v1/admin/get-voter",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8800",
+							"port": "8000",
 							"path": [
 								"api",
 								"v1",
@@ -466,7 +466,42 @@
 					"name": "Dashboard",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Voters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTAyMzg1Y2Q4YTNjOTY4MDdjNDdkMCIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTY3MjM3NzgzMn0.s9Lon8f1w675j6Zmmna51NT9YR33Y1IHPRvRufXKTH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/admin/get-voters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"get-voters"
+							]
+						}
 					},
 					"response": []
 				}
@@ -530,26 +565,63 @@
 					"name": "get election",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "get profile",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTA2OTI1YTY0N2M1YTI3YjkwYjg0NiIsInR5cGUiOiJ2b3RlciIsImlhdCI6MTY3MjIzNjgzMn0.5XAUYHibSw6zlD5cOR35EKHDsAy1ZOZUQHjbI1X_cKU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/voter/get-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"voter",
+								"get-profile"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "add vote",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTA2OTI1YTY0N2M1YTI3YjkwYjg0NiIsInR5cGUiOiJ2b3RlciIsImlhdCI6MTY3MjIzNjgzMn0.5XAUYHibSw6zlD5cOR35EKHDsAy1ZOZUQHjbI1X_cKU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"election\": \"63ac08da824c4eed44d3ca85\",\r\n    \"votes\": [\r\n        {\r\n            \"position\": \"63abdfe0c7e7baa1092dfcbe\",\r\n            \"candidate\": \"63abdfe0c7e7baa1092dfcbe\"\r\n        },\r\n        {\r\n            \"position\": \"63a2b8c9a0735604dd3f80eb\",\r\n            \"candidate\": \"639c8287a49bb8fe79cf3462\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"election\": \"63abde48b29b247bbcadd77f\",\r\n    \"votes\": [\r\n        {\r\n            \"position\": \"63a2b8c9a0735604dd3f80eb\",\r\n            \"candidate\": \"639c8287a49bb8fe79cf3462\"\r\n        },\r\n        {\r\n            \"position\": \"63aaf750b1002ba1bf81df2c\",\r\n            \"candidate\": \"639c8287a49bb8fe79cf3462\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
